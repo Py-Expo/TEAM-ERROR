@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In </title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+    .container {
+      max-width: 400px;
+      margin: 100px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-top: 0;
+      text-align: center;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-bottom: 10px;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="submit"] {
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    input[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Sign In</h2>
+    <form action="/signin" method="post">
+      <label for="signin-email">Email:</label>
+      <input type="text" id="signin-email" name="email" required>
+      <label for="signin-password">Password:</label>
+      <input type="password" id="signin-password" name="password" required>
+      <input type="submit" value="Sign In">
+    </form>
+<p><a href="/forgot-password">Forgot Password?</a></p>
+<div class="error-message" id="error-message" style="display:none;">
+    Incorrect password. Please try again.
+</div>
+
+<script>
+    // JavaScript to display error message if password is wrong
+    const form = document.querySelector('form');
+    const errorMessage = document.getElementById('error-message');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const password = event.target.password.value;
+        if (password !== 'your_correct_password') { // Change 'your_correct_password' to the correct password
+            errorMessage.style.display = 'block';
+        } else {
+            errorMessage.style.display = 'none';
+            // If password is correct, you can redirect the user to another page or perform any other action here
+        }
+    });
+</script>
+
+   
+  </div>
+</body>
+</html>
